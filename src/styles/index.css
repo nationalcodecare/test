@@ -1,0 +1,56 @@
+@import "./reset.css";
+
+.menu {
+  height: 50px;
+  background: #000;
+  display: flex;
+  align-items: center;
+}
+
+.menu img {
+  height: 100%;
+}
+
+.search-container {
+  height: 25px;
+  margin-left: 20px;
+}
+
+.input {
+  height: 100%;
+  border-radius: 5px;
+  width: 200px;
+  border: 1px solid lightgray;
+  outline: none;
+  padding: 0 10px;
+  background: none;
+}
+
+.item-container {
+  background: #fff;
+  z-index: 2;
+  border: 1px solid grey;
+  padding: 5px 10px;
+}
+
+.item-container:not(:last-of-type) {
+  border-bottom: none;
+}
+
+.item-container a {
+  height: 20px;
+  display: flex;
+  align-items: center;
+  color: inherit;
+  text-decoration: none;
+}
+
+.item-container img {
+  height: 100%;
+  border-radius: 50%;
+  margin-left: auto;
+}
+
+.active {
+  background: #fff !important;
+}
