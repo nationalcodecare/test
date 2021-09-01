@@ -20,7 +20,7 @@
   height: 100%;
   border-radius: 5px;
   width: 200px;
-  border: 1px solid lightgray;
+  border: 1px solid grey;
   outline: none;
   padding: 0 10px;
   background: none;
@@ -53,4 +53,9 @@
 
 .active {
   background: #fff !important;
+  border-bottom: 0px;
+}
+
+.no-bottom-br {
+  border-radius: 5px 5px 0 0 !important;
 }

@@ -1,12 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import useDebounce from "../hooks/useDebounce";
 import List from "../components/users-list";
 import { getUsers } from "../helpers/getUsers";
 
-function Search() {
+function Search({ results, setResults, isActive, setIsActive }) {
   const [inputValue, setInputValue] = useState("");
-  const [results, setResults] = useState([]);
-
+  const inputRef = useRef(null);
   const debouncedValue = useDebounce(inputValue.trim());
 
   const onChange = (e) => {
@@ -14,12 +13,8 @@ function Search() {
   };
 
   const onFocus = (e) => {
+    setIsActive(true);
     e.target.classList.add("active");
-  };
-
-  const onBlur = (e) => {
-    setInputValue("");
-    e.target.classList.remove("active");
   };
 
   useEffect(() => {
@@ -30,20 +25,28 @@ function Search() {
     } else {
       setResults([]);
     }
-  }, [debouncedValue]);
+  }, [debouncedValue, setResults]);
+
+  if (inputRef.current) {
+    if (results.length > 0 && isActive) {
+      inputRef.current.classList.add("no-bottom-br");
+    } else {
+      inputRef.current.classList.remove("no-bottom-br");
+    }
+  }
 
   return (
-    <div className="search-container">
+    <>
       <input
+        ref={inputRef}
         placeholder="Search"
         onChange={onChange}
-        onBlur={onBlur}
         onFocus={onFocus}
         value={inputValue}
         className="input"
       />
-      <List items={results} />
-    </div>
+      {isActive && <List items={results} />}
+    </>
   );
 }
 
