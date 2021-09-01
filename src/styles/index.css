@@ -24,6 +24,7 @@
   outline: none;
   padding: 0 10px;
   background: none;
+  color: #fff;
 }
 
 .item-container {
@@ -54,6 +55,7 @@
 .active {
   background: #fff !important;
   border-bottom: 0px;
+  color: #000;
 }
 
 .no-bottom-br {

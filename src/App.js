@@ -17,7 +17,9 @@ function App() {
 
   const handleClickOutside = (e) => {
     if (listRef.current && !listRef.current.contains(e.target)) {
+      const input = document.getElementsByClassName("input")[0];
       setIsActive(false);
+      input.classList.remove("active");
     }
   };
 
