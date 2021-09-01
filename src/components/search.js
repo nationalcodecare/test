@@ -3,7 +3,7 @@ import useDebounce from "../hooks/useDebounce";
 import List from "../components/users-list";
 import { getUsers } from "../helpers/getUsers";
 
-function Search({ results, setResults, isActive, setIsActive }) {
+function Search({ results = [], setResults, isActive, setIsActive }) {
   const [inputValue, setInputValue] = useState("");
   const inputRef = useRef(null);
   const debouncedValue = useDebounce(inputValue.trim());

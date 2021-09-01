@@ -1,4 +1,4 @@
-function List({ items }) {
+function List({ items = [] }) {
   return (
     <div className="items-container">
       {items.length > 0 &&
